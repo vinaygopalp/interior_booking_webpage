@@ -1,0 +1,79 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+body,html{
+    height: 100%;
+    margin: 0;
+    font-family: 'poppins',sans-serif;
+}
+.background{
+    background-color: #5c6c79;
+    background-size: cover;
+    background-position: center;
+    height: 100%;
+    display: flex;
+align-items: center;
+justify-content: center;
+}
+.booking-form{
+    background-color: rgba(255,255,255,0.7);
+    padding: 20px;
+    border-radius: 10px;
+    max-width: 500px;
+    width: 80%;
+    margin: 0 auto;
+}
+.booking-form h2{
+    text-align: center;
+}
+.booking-form form{
+    display: flex;
+    flex-direction: column;
+}
+.booking-form input{
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 20px;
+    height: 25px;
+}
+.booking-form select{
+    padding: 8px;
+    border: 1px solid #f4f1f1;
+    border-radius: 20px;
+}
+.booking-form button{
+    margin-top:10px;
+    padding: 10px;
+    background-color: #5c6c79;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+.booking-form button:hover{
+    background-color: #5c6c79;
+}
+
+label{
+   animation: cum 2s   both;
+}
+@keyframes cum {
+    0%{
+        transform: translateY(-30px);
+    }
+    1%{
+        transform: translateY(-401px);
+    
+    }}
+
+input,data,select{
+    animation: fuck 2s ;
+}
+@keyframes fuck {
+    0%{
+        transform: translateX(70px); /* Adjust the starting point as needed */
+        opacity: 0;
+    }
+    100%{
+        transform: translateX(0);
+        opacity: 0.7;
+    }
+}

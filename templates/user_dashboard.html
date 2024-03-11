@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{url_for('static',filename='css/dashboard.css')}}">
+    <title>user Panel</title>
+</head>
+
+<body>
+
+    <div class="side-menu">
+        <div class="brand-name">
+            <h1 style="margin-left: 10px; margin-top:10px;">Urban Inovations</h1>
+        </div>
+        <ul style="margin-top: 20px;">
+            <li><img src="dashboard (2).png" alt="">&nbsp; <span><a href="#dashboard"> Dashboard</a></span> </li>
+            <li><img src="reading-book (1).png" alt="">&nbsp;<span><a href="#booking"> Bookings</a></span> </li>
+            <li><img src="teacher2.png" alt="">&nbsp;<span><a href="#payment"> Payments</a></span> </li>
+            </a>
+            <li><img src="payment.png" alt="">&nbsp;<span><a href="#income"> Income</a></span> </li>
+            <li><img src="help-web-button.png" alt="">&nbsp; <span><a> Help</a></span></li>
+            <li><img src="settings.png" alt="">&nbsp;<span><a> Settings</a></span> </li>
+        </ul>
+    </div>  
+    <div class="container">
+        <div class="header">
+            <div class="nav">
+                <div class="search">
+                    <input type="text" placeholder="Search..">
+                    <button type="submit">Submit</button>
+                </div>
+
+            </div>
+        </div>
+        <div class="content" id="dashboard">
+            <!-- <div class="cards">
+                <div class="card" id="booking">
+                    <div class="box">
+                        <h1  >{%print(totals)%}</h1>
+                        <h3>Bookings</h3>
+                    </div>
+                    <div class="icon-case">
+                        <img src="students.png" alt="">
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="box">
+                        <h1>53</h1>
+                        <h3>Client Help</h3>
+                    </div>
+                    <div class="icon-case">
+                        <img src="teachers.png" alt="">
+                    </div>
+                </div>
+                <div class="card" id="income"  >
+                    <div class="box">
+                        <h1  >{%print(costt)%}</h1>
+                        <h3 >Revenue generated</h3>
+                    </div>
+                   
+                </div>
+                <div class="card">
+                    <div class="box">
+                        <h1>20</h1>
+                        <h3>Max Booking</h3>
+                    </div>
+                    <div class="icon-case">
+
+                    </div>
+                </div>
+
+            </div> -->
+            <div class="content-2">
+                <div class="recent-payments">
+                    <div class="title">
+                        <h2>Recent Bookings</h2>
+                        <a href="/login/book" class="btn">Book Now</a>
+                    </div>
+                    <table>
+                        {%if user_booking!=[] %}
+                        <tr>
+                            <th>Name</th>
+                            <th>Email</th>
+                            <th>Type</th>
+                            <th>Cost</th>
+                            <th>transaction id</th>
+                            <th>Option</th>
+                        </tr>
+                        {% for i in user_booking %}
+
+
+
+
+                        <tr>
+                            <td>{{ i.name }}</td>
+                            <td>{{ i.email }}</td>
+                            <td>{{ i.type }}</td>
+                            <td> ₹{{i.cost}}</td>
+                            <td> {{i.transaction_id}}</td>
+                            <td>
+                                <form method="post" action="{{ url_for('delete') }}">
+                                    <input type="hidden" name="transaction_id" value="{{ i.transaction_id }}">
+                                    <button type="submit" class="btn">Cancel Booking </button>
+                                </form>
+
+                        </tr>
+                        {% endfor %} {% endif %}
+                        {% if(user_booking==[]) %}
+                        <div class="flexbox" style="text-align: center; font: wight 100px;">
+                            <h2 style="font-size:40px;">No Bookings</h2>
+
+                        </div>
+                        {%endif%}
+                    </table>
+                </div>
+
+                <!-- <div class="new-students" id="payment">
+                    <div class="title">
+                        <h2>New payments</h2>
+                        <a href="#" class="btn">View All</a>
+                    </div>
+                    <table>
+                        <tr>
+                            <th>Name</th>
+                            <th>Card number</th>
+                            <th>Cost</th>
+                        </tr>
+                        {%for i in payment_details_All%}
+                        <tr>
+                            
+                            <td>{{i.name}}</td>
+                            <td>{{i.card_number}}</td>
+                            <td>{{i.cost}}</td>
+                        </tr>
+                        {%endfor%}
+ 
+                    </table>
+                </div> -->
+            </div>
+        </div>
+
+    </div>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>,
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FORM VALIDATION</title>
+    <link href="{{url_for('static',filename='css/register1.css') }}" rel="stylesheet">
+
+    <script src="https://kit.fontawesome.com/2bbac3a66c.js" crossorigin="anonymous" ></script>
+</head>
+<body>
+    <form  id="create-account-form" action="/enntry" method="post">
+        
+        <div class="title">
+            <h2>Create Account</h2>
+        </div>
+        <!-- USERNAME -->
+        <div class="input-group">
+            <label for="username">Name</label>
+            <input type="text" id="username" placeholder="Name" name="username" required>
+            <i class="fas fa-check-circle"></i>
+            <i class="fas fa-exclamation-circle"></i>
+            <p>Error Message</p>
+        </div>
+
+        <div class="input-group">
+            <label for="username">Phone number</label>
+            <input type="tel" pattern="[0-9]{10}" id="phone number" placeholder="phone number" name="phone_number" required>
+            <i class="fas fa-check-circle"></i>
+            <i class="fas fa-exclamation-circle"></i>
+            <p>Error Message</p>
+        </div>
+        <!-- EMAIL -->
+        <div class="input-group" >
+            <label for="email">Email</label>
+            <input type="email" id="email" placeholder="Email" name="email" required>
+            <i class="fas fa-check-circle"></i>
+            <i class="fas fa-exclamation-circle"></i>
+            <p>Error Message</p>
+        </div>
+        <!-- address -->
+        <div class="input-group">
+            <label for="username">Address</label>
+            <input type="text" id="Address" placeholder="address" name="address" required>
+            <i class="fas fa-check-circle"></i>
+            <i class="fas fa-exclamation-circle"></i>
+            <p>Error Message</p>
+        </div>
+        <!-- PASSWORD -->
+      {%if password!=confirm%}
+      <p style="color: red;">Password not matching</p>{%endif%}
+<div class="input-group">
+    <label for="password">Password</label>
+    <input type="password" id="password" placeholder="Password" name="password" required>
+    
+</div>
+
+<div class="input-group">
+    <label for="confirm-password">Confirm Password</label>
+    <input type="password" id="cnfrm-password" placeholder="Password1" required name="confirmpassword">
+    
+    <p id="message" style="
+    font-size: 14px;
+    margin: 15px 0;
+    display: inline-block;
+    color: #ffffff;"></p>
+ 
+</div>
+ 
+         <input id="submit" class="btn" onclick="checkPassword()" type="submit">
+        
+    </form>
+
+
+    <!-- JAVASCRIPT -->
+    <script src="{{url_for('static',filename='js/result.js') }}"></script>
+    <!-- <script>
+        function checkPassword(){
+            let password = document.getElementById("password").value;
+            let cnfrmPassword = document.getElementById("cnfrm-password").value;
+            console.log(" Password:", password,'\n',"Confirm Password:",cnfrmPassword);
+            let message = document.getElementById("message");
+        
+            if(password.length != 0){
+                if(password == cnfrmPassword){
+                    message.textContent = "Passwords match";
+                    message.style.backgroundColor = "#1dcd59";
+                }
+                else{
+                    message.textContent = "Password don't match";
+                    message.style.backgroundColor = "#ff4d4d";
+                }
+            }
+            else{
+                alert("Password can't be empty!");
+                message.textContent = "";
+            }
+        }
+    </script> -->
+
+    <script>
+        function validatePassword() {
+            let password = document.getElementById("password").value;
+            let cnfrmPassword = document.getElementById("cnfrm-password").value;
+            console.log(" Password:", password, '\n', "Confirm Password:", cnfrmPassword);
+            let message = document.getElementById("message");
+    
+            if (password.length !== 0) {
+                if (password === cnfrmPassword) {
+                    message.textContent = "Passwords match";
+                    message.style.backgroundColor = "#1dcd59";
+    
+                    // Submit the form if passwords match
+                    document.getElementById("create-account-form").submit();
+                } else {
+                    message.textContent = "Passwords don't match";
+                    message.style.backgroundColor = "#ff4d4d";
+                }
+            } else {
+                alert("Password can't be empty!");
+                message.textContent = "";
+            }
+        }
+    </script>
+
+</body>
+</html>
+

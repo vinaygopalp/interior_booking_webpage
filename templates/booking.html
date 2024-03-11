@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Booking Form</title>
+  <link rel="stylesheet" href="{{url_for('static', filename='css/booking.css')}}">
+</head>
+<body>
+    <div class="background">
+        <div class="booking-form">
+            <h2>Booking</h2>
+            <form action="/login/book" method="post">
+                <label for="name">Name:</label>
+                <input type="text" name="name" id="name" required>
+ 
+                <label for="email">Email:</label>
+                <input type="email" name="email" id="email" required>
+           
+                <label for="Type">Type:</label>
+                <select name="type" id="type">
+                    <option value="type">Select type</option>
+                    <option value="Kitchen">Kitchen</option>
+                    <option value="Living Room">Living Room</option>
+                    <option value="Bedroom">Bedroom</option>
+                    <option value="Washroom">Washroom</option>
+                    <option value="many">More than one</option>
+                </select>
+               
+                <label for="booking-date">Booking Date:</label>
+                <input type="date" name="booking_date" id="booking-date" required>
+
+                <button type="submit">Pay</button>
+            </form>
+        </div>
+    </div>
+</body>
+</html>
